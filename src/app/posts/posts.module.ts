@@ -6,17 +6,22 @@ import { HomeComponent } from './home/home.component';
 import { CreateComponent } from './create/create.component';
 import { FormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
-
+ 
 @NgModule({
   declarations: [
     HomeComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+     
   ],
   imports: [
     CommonModule,
     PostsRoutingModule,
-    FormsModule
+    FormsModule,
+     
+  ],
+  exports:[
+    EditComponent
   ]
 })
 export class PostsModule { }

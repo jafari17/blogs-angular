@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Posts } from '../posts';
 import { PostsService } from '../posts.service';
+import { initFlowbite } from 'flowbite';
+import { Categories } from 'src/app/categories/categories';
+import { CategoriesService } from 'src/app/categories/categories.service';
 
 @Component({
   selector: 'app-edit',
@@ -15,10 +18,13 @@ export class EditComponent implements OnInit {
     category: '',
     description: '',
   };
+  allCategories: Categories[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private router:Router,
-    private postService: PostsService
+    private postService: PostsService,
+    private categoryService: CategoriesService
   ) {}
  
   ngOnInit(): void {
@@ -26,6 +32,11 @@ export class EditComponent implements OnInit {
       var id = Number(param.get('id'));
       this.getById(id);
     });
+
+    initFlowbite();
+    this.getCategories();
+
+
   }
  
   getById(id: number) {
@@ -44,5 +55,11 @@ export class EditComponent implements OnInit {
         console.log(err);
       }
     })
+  }
+
+  getCategories() {
+    this.categoryService.get().subscribe((data) => {
+      this.allCategories = data;
+    });
   }
 }

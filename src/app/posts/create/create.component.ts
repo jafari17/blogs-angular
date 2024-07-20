@@ -1,7 +1,11 @@
 import { Component,OnInit } from '@angular/core';
+import { initFlowbite } from 'flowbite';
+
 import { Router } from '@angular/router';
 import { Posts } from '../posts';
 import { PostsService } from '../posts.service';
+import { Categories } from 'src/app/categories/categories';
+import { CategoriesService } from 'src/app/categories/categories.service';
 
 @Component({
   selector: 'app-create',
@@ -15,10 +19,22 @@ export class CreateComponent implements OnInit {
     category: '',
     description: '',
   };
+  allCategories: Categories[] = [];
+  
   constructor(private postService:PostsService,
-    private router:Router) {}
+    private router:Router,
+    private categoryService: CategoriesService) {}
  
-  ngOnInit(): void {}
+    
+
+  ngOnInit(): void {
+    initFlowbite();
+    this.getCategories();
+
+ 
+  }
+
+  
  
   create(){
     this.postService.create(this.postForm)
@@ -30,5 +46,11 @@ export class CreateComponent implements OnInit {
         console.log(err);
       }
     })
+  }
+
+  getCategories() {
+    this.categoryService.get().subscribe((data) => {
+      this.allCategories = data;
+    });
   }
 }

@@ -2,15 +2,48 @@
   "posts": [
     {
       "id": 1,
-      "title": "ترور ترامپ",
-      "category": "سیاست",
-      "description": "امروز تراپ ترور شد"
+      "title": "سمند",
+      "category": "ماشین",
+      "description": "ماشین ایرانی"
     },
     {
       "id": 2,
-      "title": "ایفون 15",
-      "category": "موبایل",
-      "description": "گوشی جدید اپل در شهریور"
+      "title": "مکبوک",
+      "category": "لپتاپ",
+      "description": "لپتاپ شرکت اپل"
+    },
+    {
+      "id": 3,
+      "title": "مودم ای دی اس ال",
+      "category": "نرم افزار",
+      "description": "مودم ای دی اس ال دی لینک"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "titleCategory": "موبایل",
+      "descriptionCategory": "گوشی موبایل فون "
+    },
+    {
+      "id": 2,
+      "titleCategory": "لپتاپ",
+      "descriptionCategory": "درباره لپتاپ\n"
+    },
+    {
+      "id": 3,
+      "titleCategory": "نرم افزار",
+      "descriptionCategory": "درباره نرم افزارهای ویندوز\n"
+    },
+    {
+      "id": 4,
+      "titleCategory": "ماشین",
+      "descriptionCategory": "در باره ماشین های برقی"
+    },
+    {
+      "id": 5,
+      "titleCategory": "مودم",
+      "descriptionCategory": "مودم های شبکه های اینترنتی"
     }
   ]
 }
