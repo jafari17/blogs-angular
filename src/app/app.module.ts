@@ -10,7 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { SideComponent } from './side/side.component';
 import { CategoriesModule } from './categories/categories.module';
- 
+import { LabelsModule } from './labels/labels.module';
+import { PagesModule } from './pages/pages.module';
+import { FormsModule } from '@angular/forms';
+import { QuillModule } from "ngx-quill";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,11 +27,21 @@ import { CategoriesModule } from './categories/categories.module';
     AppRoutingModule,
     PostsModule,
     HttpClientModule,
-    CategoriesModule
-  ],
+    CategoriesModule,
+    LabelsModule,
+    PagesModule,
+    FormsModule,
+    QuillModule.forRoot({
+      customOptions: [{
+        import: 'formats/font',
+        whitelist: ['mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace']
+      }]
+   })
+   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
+ 

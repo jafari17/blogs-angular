@@ -9,8 +9,8 @@ import { PostsService } from '../posts.service';
 })
 export class HomeComponent implements OnInit {
   allPosts: Posts[] = [];
-  
-  constructor(private postService: PostsService) {}
+  allPostsSave: Posts[] = [];
+   constructor(private postService: PostsService) {}
  
   ngOnInit(): void {
     this.getPosts();
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   getPosts() {
     this.postService.get().subscribe((data) => {
       this.allPosts = data;
+      this.allPostsSave = data;
     });
   }
 
@@ -27,9 +28,35 @@ export class HomeComponent implements OnInit {
   deleteItem(id:number) {
     this.postService.delete(id).subscribe({
       next: (data) => {
-        this.allPosts = this.allPosts.filter(x => x.id != id)
-         
+        this.allPosts = this.allPosts.filter(x => x.id != id) 
       },
     });
 }
+
+activeItem(post:Posts) {
+  console.log(post.active)
+  post.active = !post.active
+  console.log(post.active)
+
+  this.postService.update(post).subscribe({
+    next: (data) => {
+      // this.allPosts = this.allPosts.filter(x => x.id != post) 
+    },
+  });
+ 
+   
+}
+
+showActive(){
+   this.allPosts = this.allPostsSave; 
+   this.allPosts = this.allPosts.filter(x => x.active == true) 
+}
+
+
+showNOActive(){
+  this.allPosts = this.allPostsSave; 
+
+    this.allPosts = this.allPosts.filter(x => x.active == false) 
+}
+
 }
