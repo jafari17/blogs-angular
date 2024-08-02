@@ -17,7 +17,9 @@ export class HomeComponent implements OnInit {
   }
  
   getPosts() {
+    console.log("getPosts()")
     this.postService.get().subscribe((data) => {
+      
       this.allPosts = data;
       this.allPostsSave = data;
     });
@@ -47,6 +49,12 @@ activeItem(post:Posts) {
    
 }
 
+showAll(){
+  this.allPosts = this.allPostsSave; 
+
+}
+
+
 showActive(){
    this.allPosts = this.allPostsSave; 
    this.allPosts = this.allPosts.filter(x => x.active == true) 
@@ -54,8 +62,7 @@ showActive(){
 
 
 showNOActive(){
-  this.allPosts = this.allPostsSave; 
-
+    this.allPosts = this.allPostsSave; 
     this.allPosts = this.allPosts.filter(x => x.active == false) 
 }
 

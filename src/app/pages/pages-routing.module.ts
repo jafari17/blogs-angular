@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePagesComponent } from './home-pages/home-pages.component';
+import { PostPagesComponent } from './post-pages/post-pages.component';
 
 const routes: Routes = [
   {
-    path:'pages/home/:id',
-    component: HomePagesComponent
-  }
+    path:'pages',
+    component: HomePagesComponent,
+   },
+   {
+    path:'pages/post/:id',
+    component: PostPagesComponent,
+   } 
+ 
 ];
 
 @NgModule({
@@ -14,3 +20,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class PagesRoutingModule { }
+

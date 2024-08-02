@@ -9,27 +9,18 @@ import { EditComponent } from './edit/edit.component';
 import { QuillModule } from "ngx-quill";
 @NgModule({
   declarations: [
-    HomeComponent,
-    CreateComponent,
-    EditComponent,
+ 
      
      
   ],
   imports: [
     CommonModule,
     PostsRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    QuillModule.forRoot({
-      customOptions: [{
-        import: 'formats/font',
-        whitelist: ['mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace']
-      }]
-   })
+
      
   ],
   exports:[
-    EditComponent
+     
   ]
 })
 export class PostsModule { }

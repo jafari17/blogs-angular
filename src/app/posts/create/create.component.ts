@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { initFlowbite } from 'flowbite';
+// import { initFlowbite } from 'flowbite';
 
 import { Router } from '@angular/router';
 import { Labels, Posts } from '../posts';
@@ -39,16 +39,13 @@ export class CreateComponent implements OnInit {
     
 
   ngOnInit(): void {
-    initFlowbite();
+    // initFlowbite();
     this.getCategories();
-
- 
   }
 
   
   labelRegister():void{
     var length = this.labelsArray.push(this.labels.label) 
-
     this.labels.label = ''
    }
   labelRemove(label:any){
@@ -61,8 +58,7 @@ export class CreateComponent implements OnInit {
     console.log("create")
  
     for(let item of this.labelsArray){
-
-      this.labels = {
+        this.labels = {
         label: item,
       };
 

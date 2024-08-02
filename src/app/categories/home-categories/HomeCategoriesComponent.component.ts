@@ -4,10 +4,10 @@ import { CategoriesService } from '../categories.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './home-categories.component.html',
+  styleUrls: ['./home-categories.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeCategoriesComponent implements OnInit {
   allCategories: Categories[] = [];
  
   constructor(private categoryService: CategoriesService) {}

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Labels, Posts } from '../posts';
 import { PostsService } from '../posts.service';
-import { initFlowbite } from 'flowbite';
+// import { initFlowbite } from 'flowbite';
 import { Categories } from 'src/app/categories/categories';
 import { CategoriesService } from 'src/app/categories/categories.service';
 
@@ -38,7 +38,7 @@ export class EditComponent implements OnInit {
       this.getById(id);
     });
 
-    initFlowbite();
+    // initFlowbite();
     this.getCategories();
 
 

@@ -5,18 +5,7 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
-  {
-    path: 'posts/home',
-    component: HomeComponent,
-  },
-  {
-    path: 'posts/create',
-    component: CreateComponent ,
-  },
-  {
-    path:'posts/edit/:id',
-    component: EditComponent
-  }
+  
  
 ];
 

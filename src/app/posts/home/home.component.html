@@ -19,7 +19,7 @@
 
 
                 <div class="inline-flex rounded-md shadow-sm" role="group">
-                    <button (click)="getPosts()"   type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+                    <button (click)="showAll()"   type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
                       تمام پستها
                     </button>
                     <button (click)="showActive()" type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
@@ -37,13 +37,13 @@
 
             </div>
             <div class="overflow-x-auto ">
-                <table class="w-full text-sm ltr:text-left rtl:text-right   text-gray-500 dark:text-gray-400">
+                <table   class="w-full text-sm ltr:text-left rtl:text-right   text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr >
                             <th scope="col" class="px-4 py-3 ml-2 ltr:ml-3  "></th>
                             <th scope="col" class="px-4 py-3 ltr:ml-3  ">عنوان</th>
                             <th scope="col" class="px-4 py-3 ltr:ml-3  ">دسته بندی</th>
-                            <!-- <th scope="col" class="px-4 py-3 ltr:ml-3  ">شرح</th> -->
+                            <th scope="col" class="px-4 py-3 ltr:ml-3  ">شرح</th>
                             <th scope="col" class="px-4 py-3 ltr:ml-3  ">برچسب</th>
 
                             <th scope="col" class="px-4 py-3">
@@ -56,24 +56,24 @@
                             <th scope="row"  class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ i + 1 }}</th>
                             <td class="px-4 py-3 ltr:ml-3 rtl:mr-3">{{ item.title }}</td>
                             <td class="px-4 py-3 ltr:ml-3 rtl:mr-3">{{ item.category }}</td>
-                            <!-- <td class="px-4 py-3 ltr:ml-3 rtl:mr-3">{{ item.description }}</td> -->
+                            <td class=" px-4 py-3 ltr:ml-3 rtl:mr-3"  >
+                              <p  class="overflow-hidden truncate w-2"      style="display:inline-block;height:3ch; width:50ch; overflow: hidden;white-space: nowrap; text-overflow: ellipsis;" [innerHTML]=" item.description" ></p>
+
+                              
+                            </td>
                             
                             <td    class="px-4 py-3 ltr:ml-3 rtl:mr-3  ">
-                                
- 
-                                    <button *ngFor="let i of item.labels" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-                                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                    <button *ngFor="let i of item.labels" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-xs font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                                        <span class="relative px-1 py-0.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                                             {{i.label + " "}}
                                         </span>
                                         </button>
-
-
-
                             </td>
+
                             <td class="px-4 py-3 flex items-center justify-end">
                               
                             <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                              <a class="btn btn-primary" [routerLink]="['/posts/edit', item.id]">ویرایش</a>
+                              <a   [routerLink]="['/posts/edit', item.id]">ویرایش</a>
                             </button>
 
                             <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
